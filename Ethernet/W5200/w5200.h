@@ -10,30 +10,30 @@
 //!
 //! Copyright (c)  2013, WIZnet Co., LTD.
 //! All rights reserved.
-//! 
-//! Redistribution and use in source and binary forms, with or without 
-//! modification, are permitted provided that the following conditions 
-//! are met: 
-//! 
-//!     * Redistributions of source code must retain the above copyright 
-//! notice, this list of conditions and the following disclaimer. 
+//!
+//! Redistribution and use in source and binary forms, with or without
+//! modification, are permitted provided that the following conditions
+//! are met:
+//!
+//!     * Redistributions of source code must retain the above copyright
+//! notice, this list of conditions and the following disclaimer.
 //!     * Redistributions in binary form must reproduce the above copyright
 //! notice, this list of conditions and the following disclaimer in the
-//! documentation and/or other materials provided with the distribution. 
-//!     * Neither the name of the <ORGANIZATION> nor the names of its 
-//! contributors may be used to endorse or promote products derived 
-//! from this software without specific prior written permission. 
-//! 
+//! documentation and/or other materials provided with the distribution.
+//!     * Neither the name of the <ORGANIZATION> nor the names of its
+//! contributors may be used to endorse or promote products derived
+//! from this software without specific prior written permission.
+//!
 //! THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-//! AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+//! AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 //! IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-//! ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
-//! LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
-//! CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+//! ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+//! LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+//! CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
 //! SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-//! INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-//! CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-//! ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF 
+//! INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+//! CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+//! ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 //! THE POSSIBILITY OF SUCH DAMAGE.
 //
 //*****************************************************************************
@@ -46,7 +46,7 @@ extern "C" {
 #endif
 
 #include <stdint.h>
-#include "wizchip_conf.h"
+#include "../wizchip_conf.h"
 
 /// \cond DOXY_APPLY_CODE
 #if   (_WIZCHIP_ == 5200)
@@ -66,12 +66,12 @@ extern "C" {
 #define WIZCHIP_OFFSET_INC(ADDR, N)    (ADDR + N) ///< Increase offset address
 
 #if  (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_BUS_)
-	#define IDM_AR0            ((_WIZCHIP_IO_BASE_ + 0x0001))
-	#define IDM_AR1            ((_WIZCHIP_IO_BASE_ + 0x0002))
-	#define IDM_DR             ((_WIZCHIP_IO_BASE_ + 0x0003))
-	#define _W5200_IO_BASE_    0x0000
+#define IDM_AR0            ((_WIZCHIP_IO_BASE_ + 0x0001))
+#define IDM_AR1            ((_WIZCHIP_IO_BASE_ + 0x0002))
+#define IDM_DR             ((_WIZCHIP_IO_BASE_ + 0x0003))
+#define _W5200_IO_BASE_    0x0000
 #elif (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_SPI_)
-   #define _W5200_IO_BASE_    0x0000
+#define _W5200_IO_BASE_    0x0000
 #endif
 
 ///////////////////////////////////////
@@ -92,20 +92,20 @@ extern "C" {
  * - @ref WIZCHIP_register_W5200 : @ref Common_register_group_W5200 and @ref Socket_register_group_W5200
  * - @ref WIZCHIP_IO_Functions_W5200 : @ref Basic_IO_function_W5200, @ref Common_register_access_function_W5200 and @ref Socket_register_group_W5200
  */
- 
- /**
- * @defgroup WIZCHIP_register_W5200 WIZCHIP register
- * @ingroup W5200
- * @brief WIZCHIP register defines register group of <b> W5200 </b>.
- *
- * - \ref Common_register_group_W5200 : Common register group w5200
- * - \ref Socket_register_group_W5200 : \c SOCKET n register group w5200
- */
- 
+
+/**
+* @defgroup WIZCHIP_register_W5200 WIZCHIP register
+* @ingroup W5200
+* @brief WIZCHIP register defines register group of <b> W5200 </b>.
+*
+* - \ref Common_register_group_W5200 : Common register group w5200
+* - \ref Socket_register_group_W5200 : \c SOCKET n register group w5200
+*/
+
 
 /**
  * @defgroup WIZCHIP_IO_Functions_W5200 WIZCHIP I/O functions
- * @ingroup W5200 
+ * @ingroup W5200
  * @brief This supports the basic I/O functions for \ref WIZCHIP_register_W5200.
  *
  * - <b> Basic I/O function </b> \n
@@ -140,7 +140,7 @@ extern "C" {
  *      getSn_FRAG(), setSn_FRAG(),  getSn_TOS(), setSn_TOS() \n
  *      getSn_TTL(), setSn_TTL()
  */
- 
+
 /**
  * @defgroup Common_register_group_W5200 Common register
  * @ingroup WIZCHIP_register_W5200
@@ -157,37 +157,37 @@ extern "C" {
  */
 
 
- /**
- * @defgroup Socket_register_group_W5200 Socket register
- * @ingroup WIZCHIP_register_W5200
- * @brief Socket register group\n
- * Socket register configures and control SOCKETn which is necessary to data communication.
- * @details
- * @sa Sn_MR, Sn_CR, Sn_IR, Sn_IMR : SOCKETn Control
- * @sa Sn_SR, Sn_PORT, Sn_DHAR, Sn_DIPR, Sn_DPORT : SOCKETn Information
- * @sa Sn_MSSR, Sn_TOS, Sn_TTL, Sn_FRAG : Internet protocol.
- * @sa Sn_RXMEM_SIZE, Sn_TXMEM_SIZE, Sn_TX_FSR, Sn_TX_RD, Sn_TX_WR, Sn_RX_RSR, Sn_RX_RD, Sn_RX_WR : Data communication
- */
- 
- /**
- * @defgroup Basic_IO_function_W5200 Basic I/O function
- * @ingroup WIZCHIP_IO_Functions_W5200
- * @brief These are basic input/output functions to read values from register or write values to register.
- */
+/**
+* @defgroup Socket_register_group_W5200 Socket register
+* @ingroup WIZCHIP_register_W5200
+* @brief Socket register group\n
+* Socket register configures and control SOCKETn which is necessary to data communication.
+* @details
+* @sa Sn_MR, Sn_CR, Sn_IR, Sn_IMR : SOCKETn Control
+* @sa Sn_SR, Sn_PORT, Sn_DHAR, Sn_DIPR, Sn_DPORT : SOCKETn Information
+* @sa Sn_MSSR, Sn_TOS, Sn_TTL, Sn_FRAG : Internet protocol.
+* @sa Sn_RXMEM_SIZE, Sn_TXMEM_SIZE, Sn_TX_FSR, Sn_TX_RD, Sn_TX_WR, Sn_RX_RSR, Sn_RX_RD, Sn_RX_WR : Data communication
+*/
+
+/**
+* @defgroup Basic_IO_function_W5200 Basic I/O function
+* @ingroup WIZCHIP_IO_Functions_W5200
+* @brief These are basic input/output functions to read values from register or write values to register.
+*/
 
 /**
  * @defgroup Common_register_access_function_W5200 Common register access functions
  * @ingroup WIZCHIP_IO_Functions_W5200
  * @brief These are functions to access <b>common registers</b>.
  */
- 
+
 /**
  * @defgroup Socket_register_access_function_W5200 Socket register access functions
  * @ingroup WIZCHIP_IO_Functions_W5200
  * @brief These are functions to access <b>socket registers</b>.
  */
- 
- //-----------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------
 
 //----------------------------- W5200 Common Registers IOMAP -----------------------------
 /**
@@ -206,11 +206,11 @@ extern "C" {
  * - \ref MR_AI         	: Address Auto-Increment in Indirect Bus Interface
  * - \ref MR_IND         	: Indirect Bus Interface mode
  */
-#if  (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_BUS_) 
-   #define MR					(_WIZCHIP_IO_BASE_ + (0x0000))  // Mode
-#else   
-   #define MR					(_W5200_IO_BASE_ + (0x0000))  // Mode
-#endif   
+#if  (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_BUS_)
+#define MR					(_WIZCHIP_IO_BASE_ + (0x0000))  // Mode
+#else
+#define MR					(_W5200_IO_BASE_ + (0x0000))  // Mode
+#endif
 
 /**
  * @ingroup Common_register_group_W5200
@@ -424,7 +424,7 @@ extern "C" {
  * 		<tr>   <td><b>Protocol[3]</b></td> <td><b>Protocol[2]</b></td> <td><b>Protocol[1]</b></td> <td><b>Protocol[0]</b></td> <td>@b Meaning</td>   </tr>
  * 		<tr>   <td>0</td> <td>1</td> <td>0</td> <td>0</td> <td>MACRAW</td>   </tr>
  * 		<tr>   <td>0</td> <td>1</td> <td>0</td> <td>1</td> <td>PPPoE</td>   </tr>
- * </table> 
+ * </table>
  *	- \ref Sn_MR_MACRAW	: MAC LAYER RAW SOCK \n
  *  - \ref Sn_MR_UDP		: UDP
  *  - \ref Sn_MR_TCP		: TCP
@@ -457,7 +457,7 @@ extern "C" {
  * 		<tr>   <td>0x25</td> <td>PCR</td> <td>In each phase, it transmits REQ message.</td> </tr>
  * 		<tr>   <td>0x26</td> <td>PCN</td> <td>In each phase, it transmits NAK message.</td> </tr>
  * 		<tr>   <td>0x27</td> <td>PCJ</td> <td>In each phase, it transmits REJECT message.</td> </tr>
- * </table> 
+ * </table>
  */
 #define Sn_CR(sn)			(_W5200_IO_BASE_ + WIZCHIP_SREG_BLOCK(sn) + (0x0001)) // channel Sn_CR register
 
@@ -675,8 +675,8 @@ extern "C" {
  * @ingroup Socket_register_group_W5200
  * @brief socket interrupt mask register(R)
  * @details \ref Sn_IMR masks the interrupt of Socket n.
- * Each bit corresponds to each bit of \ref Sn_IR. When a Socket n Interrupt is occurred and the corresponding bit of \ref Sn_IMR is 
- * the corresponding bit of \ref Sn_IR becomes  When both the corresponding bit of \ref Sn_IMR and \ref Sn_IR are and the n-th bit of \ref IR is 
+ * Each bit corresponds to each bit of \ref Sn_IR. When a Socket n Interrupt is occurred and the corresponding bit of \ref Sn_IMR is
+ * the corresponding bit of \ref Sn_IR becomes  When both the corresponding bit of \ref Sn_IMR and \ref Sn_IR are and the n-th bit of \ref IR is
  * Host is interrupted by asserted INTn PIN to low.
  */
 #define Sn_IMR(sn)		(_W5200_IO_BASE_ + WIZCHIP_SREG_BLOCK(sn) + (0x002C)) // socket interrupt mask register
@@ -773,7 +773,7 @@ extern "C" {
  */
 #define PHYSTATUS_POWERDOWN				0x08
 
-// Sn_MR values 
+// Sn_MR values
 /* Sn_MR Default values */
 /**
  * @brief Unused socket
@@ -873,7 +873,7 @@ extern "C" {
  * In this mode, Socket n operates as a 'TCP server' and waits for connection-request (SYN packet) from any 'TCP client'.//
  * The \ref Sn_SR changes the state from SOCK_INIT to SOCKET_LISTEN.//
  * When a 'TCP client' connection request is successfully established,
- * the \ref Sn_SR changes from SOCK_LISTEN to SOCK_ESTABLISHED and the Sn_IR(0) becomes 
+ * the \ref Sn_SR changes from SOCK_LISTEN to SOCK_ESTABLISHED and the Sn_IR(0) becomes
  * But when a 'TCP client' connection request is failed, Sn_IR(3) becomes and the status of \ref Sn_SR changes to SOCK_CLOSED.
  */
 #define Sn_CR_LISTEN		0x02 ///< wait connection request in tcp mode(Server mode) 
@@ -952,45 +952,45 @@ extern "C" {
 /**
  * @brief Closes PPPoE connection
  * @details Closes PPPoE connection
- */		 
-#define Sn_CR_PDISCON		0x24		 
+ */
+#define Sn_CR_PDISCON		0x24
 
 /**
  * @brief REQ message transmission
  * @details In each phase, it transmits REQ message.
  */
-#define Sn_CR_PCR			0x25		 
+#define Sn_CR_PCR			0x25
 
 /**
  * @brief NAK massage transmission
  * @details In each phase, it transmits NAK message.
  */
-#define Sn_CR_PCN			0x26		
+#define Sn_CR_PCN			0x26
 
 /**
  * @brief REJECT message transmission
  * @details In each phase, it transmits REJECT message.
  */
-#define Sn_CR_PCJ			0x27		
+#define Sn_CR_PCJ			0x27
 
 /* Sn_IR values */
 /**
  * @brief PPP Receive Interrupt
  * @details PPP Receive Interrupts when the option which is not supported is received.
  */
-#define Sn_IR_PRECV			0x80	
+#define Sn_IR_PRECV			0x80
 
 /**
  * @brief PPP Fail Interrupt
  * @details PPP Fail Interrupts when PAP Authentication is failed.
- */	
-#define Sn_IR_PFAIL			0x40		
+ */
+#define Sn_IR_PFAIL			0x40
 
 /**
  * @brief PPP Next Phase Interrupt
  * @details PPP Next Phase Interrupts when the phase is changed during ADSL connection process.
  */
-#define Sn_IR_PNEXT			0x20		
+#define Sn_IR_PNEXT			0x20
 
 /**
  * @brief SEND_OK Interrupt
@@ -1144,7 +1144,7 @@ connection.
  */
 #define SOCK_PPPOE			0x5F ///< pppoe socket 
 
-// IP PROTOCOL 
+// IP PROTOCOL
 #define IPPROTO_IP			0 ///< Dummy for IP 
 #define IPPROTO_ICMP		   1 ///< Control message protocol 
 #define IPPROTO_IGMP		   2 ///< Internet group management protocol 
@@ -1238,9 +1238,9 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
  * @sa getMR()
  */
 #if (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_SPI_)
-   #define setMR(mr) 	WIZCHIP_WRITE(MR,mr)
-#else 
-   #define setMR(mr)    (*((uint8_t*)MR) = mr)
+#define setMR(mr) 	WIZCHIP_WRITE(MR,mr)
+#else
+#define setMR(mr)    (*((uint8_t*)MR) = mr)
 #endif
 
 /**
@@ -1250,9 +1250,9 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
  * @sa setMR()
  */
 #if (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_SPI_)
-   #define getMR() 		WIZCHIP_READ(MR)
+#define getMR() 		WIZCHIP_READ(MR)
 #else
-   #define getMR()      (*(uint8_t*)MR)
+#define getMR()      (*(uint8_t*)MR)
 #endif
 
 /**
@@ -1357,7 +1357,7 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
 /*
 #define setIMR(imr) \
 		WIZCHIP_WRITE(_IMR_, imr)
-*/		
+*/
 #define setIMR(imr) \
 		WIZCHIP_WRITE(IMR2, imr & 0xA0)
 
@@ -1371,7 +1371,7 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
 /*
 #define getIMR() \
 		WIZCHIP_READ(_IMR_)
-*/		
+*/
 #define getIMR() \
 		(WIZCHIP_READ(IMR2) & 0xA0)
 
@@ -1528,11 +1528,11 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
  * @sa getIMR2()
  * @note If possible, Don't use this function. Instead, Use setSIMR() for compatible with ioLibrary.
  */
- //M20150410 : Replace IMR2 with _IMR_ for integrating with ioLibrary
+//M20150410 : Replace IMR2 with _IMR_ for integrating with ioLibrary
 /*
 #define setIMR2(imr2) \
 		WIZCHIP_WRITE(IMR2, (imr2 & 0xA0))
-*/		
+*/
 #define setIMR2(imr2) \
 		WIZCHIP_WRITE(_IMR_, imr2)
 #define  setSIMR(imr2)  setIMR2(imr2)
@@ -1543,11 +1543,11 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
  * @return uint8_t. Value of \ref IMR2 register.
  * @sa setIMR2()
  */
- //M20150410 : Replace IMR2 with _IMR_ for integrating with ioLibrary
+//M20150410 : Replace IMR2 with _IMR_ for integrating with ioLibrary
 /*
 #define getIMR2() \
 		(WIZCHIP_READ(IMR2) & 0xA0)
-*/		
+*/
 #define getIMR2() \
 		WIZCHIP_READ(_IMR_)
 #define getSIMR()      getIMR2()

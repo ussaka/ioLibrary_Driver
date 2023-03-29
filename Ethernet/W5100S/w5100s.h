@@ -10,30 +10,30 @@
 //!
 //! Copyright (c)  2013, WIZnet Co., LTD.
 //! All rights reserved.
-//! 
-//! Redistribution and use in source and binary forms, with or without 
-//! modification, are permitted provided that the following conditions 
-//! are met: 
-//! 
-//!     * Redistributions of source code must retain the above copyright 
-//! notice, this list of conditions and the following disclaimer. 
+//!
+//! Redistribution and use in source and binary forms, with or without
+//! modification, are permitted provided that the following conditions
+//! are met:
+//!
+//!     * Redistributions of source code must retain the above copyright
+//! notice, this list of conditions and the following disclaimer.
 //!     * Redistributions in binary form must reproduce the above copyright
 //! notice, this list of conditions and the following disclaimer in the
-//! documentation and/or other materials provided with the distribution. 
-//!     * Neither the name of the <ORGANIZATION> nor the names of its 
-//! contributors may be used to endorse or promote products derived 
-//! from this software without specific prior written permission. 
-//! 
+//! documentation and/or other materials provided with the distribution.
+//!     * Neither the name of the <ORGANIZATION> nor the names of its
+//! contributors may be used to endorse or promote products derived
+//! from this software without specific prior written permission.
+//!
 //! THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-//! AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+//! AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
 //! IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
-//! ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
-//! LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
-//! CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+//! ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+//! LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+//! CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
 //! SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-//! INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-//! CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-//! ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF 
+//! INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+//! CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+//! ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 //! THE POSSIBILITY OF SUCH DAMAGE.
 //
 //*****************************************************************************
@@ -47,7 +47,7 @@ extern "C" {
 #endif
 
 #include <stdint.h>
-#include "wizchip_conf.h"
+#include "../wizchip_conf.h"
 
 /// \cond DOXY_APPLY_CODE
 #if   (_WIZCHIP_ == W5100S)
@@ -65,15 +65,15 @@ extern "C" {
 #define WIZCHIP_OFFSET_INC(ADDR, N)    (ADDR + N) ///< Increase offset address
 
 #if (_WIZCHIP_IO_MODE_ == _WIZCHIP_IO_MODE_BUS_DIR_)
-   #define _W5100S_IO_BASE_     _WIZCHIP_IO_BASE_
+#define _W5100S_IO_BASE_     _WIZCHIP_IO_BASE_
 #elif (_WIZCHIP_IO_MODE_ == _WIZCHIP_IO_MODE_BUS_INDIR_)
-	#define IDM_OR             ((_WIZCHIP_IO_BASE  + 0x0000))
-	#define IDM_AR0            ((_WIZCHIP_IO_BASE_ + 0x0001))
-	#define IDM_AR1            ((_WIZCHIP_IO_BASE_ + 0x0002))
-	#define IDM_DR             ((_WIZCHIP_IO_BASE_ + 0x0003))
-	#define _W5100S_IO_BASE_    0x0000
+#define IDM_OR             ((_WIZCHIP_IO_BASE  + 0x0000))
+#define IDM_AR0            ((_WIZCHIP_IO_BASE_ + 0x0001))
+#define IDM_AR1            ((_WIZCHIP_IO_BASE_ + 0x0002))
+#define IDM_DR             ((_WIZCHIP_IO_BASE_ + 0x0003))
+#define _W5100S_IO_BASE_    0x0000
 #elif (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_SPI_)
-   #define _W5100S_IO_BASE_    0x0000
+#define _W5100S_IO_BASE_    0x0000
 #endif
 
 ///////////////////////////////////////
@@ -95,14 +95,14 @@ extern "C" {
  * - @ref WIZCHIP_IO_Functions_W5100S: @ref Basic_IO_function_W5100S, @ref Common_register_access_function_W5100S and @ref Special_function_W5100S
  */
 
- /**
- * @defgroup WIZCHIP_register_W5100S WIZCHIP register
- * @ingroup W5100S
- * @brief WIZCHIP register defines register group of <b> W5100S </b>.
- *
- * - \ref Common_register_group_W5100S : Common register group W5100S
- * - \ref Socket_register_group_W5100S : \c SOCKET n register group W5100S
- */
+/**
+* @defgroup WIZCHIP_register_W5100S WIZCHIP register
+* @ingroup W5100S
+* @brief WIZCHIP register defines register group of <b> W5100S </b>.
+*
+* - \ref Common_register_group_W5100S : Common register group W5100S
+* - \ref Socket_register_group_W5100S : \c SOCKET n register group W5100S
+*/
 
 
 /**
@@ -156,23 +156,23 @@ extern "C" {
  */
 
 
- /**
- * @defgroup Socket_register_group_W5100S Socket register
- * @ingroup WIZCHIP_register_W5100S
- * @brief Socket register group\n
- * Socket register configures and control SOCKETn which is necessary to data communication.
- * @details
- * @sa Sn_MR, Sn_CR, Sn_IR : SOCKETn Control
- * @sa Sn_SR, Sn_PORT, Sn_DHAR, Sn_DIPR, Sn_DPORT : SOCKETn Information
- * @sa Sn_MSSR, Sn_TOS, Sn_TTL, Sn_FRAGR : Internet protocol.
- * @sa Sn_RXMEM_SIZE, Sn_TXMEM_SIZE, Sn_TX_FSR, Sn_TX_RD, Sn_TX_WR, Sn_RX_RSR, Sn_RX_RD, Sn_RX_WR : Data communication
- */
+/**
+* @defgroup Socket_register_group_W5100S Socket register
+* @ingroup WIZCHIP_register_W5100S
+* @brief Socket register group\n
+* Socket register configures and control SOCKETn which is necessary to data communication.
+* @details
+* @sa Sn_MR, Sn_CR, Sn_IR : SOCKETn Control
+* @sa Sn_SR, Sn_PORT, Sn_DHAR, Sn_DIPR, Sn_DPORT : SOCKETn Information
+* @sa Sn_MSSR, Sn_TOS, Sn_TTL, Sn_FRAGR : Internet protocol.
+* @sa Sn_RXMEM_SIZE, Sn_TXMEM_SIZE, Sn_TX_FSR, Sn_TX_RD, Sn_TX_WR, Sn_RX_RSR, Sn_RX_RD, Sn_RX_WR : Data communication
+*/
 
- /**
- * @defgroup Basic_IO_function_W5100S Basic I/O function
- * @ingroup WIZCHIP_IO_Functions_W5100S
- * @brief These are basic input/output functions to read values from register or write values to register.
- */
+/**
+* @defgroup Basic_IO_function_W5100S Basic I/O function
+* @ingroup WIZCHIP_IO_Functions_W5100S
+* @brief These are basic input/output functions to read values from register or write values to register.
+*/
 
 /**
  * @defgroup Common_register_access_function_W5100S Common register access functions
@@ -186,13 +186,13 @@ extern "C" {
  * @brief These are functions to access <b>socket registers</b>.
  */
 
- /**
- * @defgroup Special_function_W5100S Special functions
- * @ingroup WIZCHIP_IO_Functions_W5100S
- * @brief These are special functions to access to the PHY
- */
+/**
+* @defgroup Special_function_W5100S Special functions
+* @ingroup WIZCHIP_IO_Functions_W5100S
+* @brief These are special functions to access to the PHY
+*/
 
- //-----------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------
 
 //----------------------------- W5100S Common Registers IOMAP -----------------------------
 /**
@@ -211,9 +211,9 @@ extern "C" {
  * - \ref MR_IND         	: Indirect Bus Interface mode
  */
 #if _WIZCHIP_IO_MODE_ == _WIZCHIP_IO_MODE_BUS_INDIR_
-   #define MR					(_WIZCHIP_IO_BASE_ + (0x0000))  // Mode
+#define MR					(_WIZCHIP_IO_BASE_ + (0x0000))  // Mode
 #else
-   #define MR					(_W5100S_IO_BASE_ + (0x0000))  // Mode
+#define MR					(_W5100S_IO_BASE_ + (0x0000))  // Mode
 #endif
 
 /**
@@ -1787,7 +1787,7 @@ connection.
 //M20150601 :  uint16_t AddrSel --> uint32_t AddrSel
 //
 /**
- * @ingroup Basic_IO_function_W5100S 
+ * @ingroup Basic_IO_function_W5100S
  * @brief It reads 1 byte value from a register.
  * @param AddrSel Register address
  * @return The value of register
@@ -1833,9 +1833,9 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
  * @sa getMR()
  */
 #if (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_SPI_)
-   #define setMR(mr) 	WIZCHIP_WRITE(MR,mr)
+#define setMR(mr) 	WIZCHIP_WRITE(MR,mr)
 #else
-   #define setMR(mr)    (*((uint8_t*)MR) = mr)
+#define setMR(mr)    (*((uint8_t*)MR) = mr)
 #endif
 
 /**
@@ -1845,9 +1845,9 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
  * @sa setMR()
  */
 #if (_WIZCHIP_IO_MODE_ & _WIZCHIP_IO_MODE_SPI_)
-   #define getMR() 		WIZCHIP_READ(MR)
+#define getMR() 		WIZCHIP_READ(MR)
 #else
-   #define getMR()      (*(uint8_t*)MR)
+#define getMR()      (*(uint8_t*)MR)
 #endif
 
 /**
@@ -1933,7 +1933,7 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
  */
 #define setIR(ir) \
 		WIZCHIP_WRITE(IR, (ir & 0xE0)) //peter 2016.11.07 unreachable interrupt bit added
-		//WIZCHIP_WRITE(IR, (ir & 0xA0))
+//WIZCHIP_WRITE(IR, (ir & 0xA0))
 /**
  * @ingroup Common_register_access_function_W5100S
  * @brief Get \ref IR register
@@ -2013,7 +2013,7 @@ void     WIZCHIP_WRITE_BUF(uint32_t AddrSel, uint8_t* pBuf, uint16_t len);
  * @return uint8_t. Value of @ref RMSR register.
  * @sa setRMSR()
  */
- #define getRMSR()   \
+#define getRMSR()   \
       WIZCHIP_READ(RMSR) // Receicve Memory Size
 
 /**
